@@ -9,11 +9,9 @@ def solution(x: np.array, y: np.array) -> bool: # Одна или две выб�
     # Это будет вашим решением
     # Не меняйте название функции и её аргументы
     sample1 = x.astype(float)
-    sample1 = sample1 + 1
-    sample1 = sample1.apply(np.log, axis=0)
+    sample1 = np.log(sample1 + 1)
     sample2 = y.astype(float)
-    sample2 = sample2 + 1
-    sample2 = sample2.apply(np.log, axis=0)
+    sample2 = np.log(sample2 + 1)
     
     stat, pval = mannwhitneyu(sample1, sample2, alternative='greater')
     return pval < 0.07 # Ваш ответ, True или False
